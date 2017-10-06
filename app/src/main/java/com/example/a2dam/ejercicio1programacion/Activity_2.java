@@ -27,7 +27,7 @@ public class Activity_2 extends AppCompatActivity implements View.OnClickListene
         edad = (EditText) findViewById(R.id.Edad);
 
         Intent i = getIntent();
-        txtNombre.setText("Hola"+i.getCharSequenceExtra("nombre")+", introduce los siguientes datos:");
+        txtNombre.setText("Hola "+i.getCharSequenceExtra("nombre")+", introduce los siguientes datos");
 
 
 
@@ -39,8 +39,10 @@ public class Activity_2 extends AppCompatActivity implements View.OnClickListene
         if(view.getId() == btnSiguiente.getId()) {
             if (!edad.getText().toString().replace(" ", "").equals("")) {
 
-
-
+                Intent i = new Intent();
+                i.putExtra("edad", edad.getText());
+                setResult(RESULT_OK, i);
+                finish();
             } else {
 
                 Toast.makeText(this, "Introduce la edad", Toast.LENGTH_SHORT).show();

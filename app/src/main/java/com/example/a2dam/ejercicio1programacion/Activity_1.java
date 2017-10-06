@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +14,9 @@ public class Activity_1 extends AppCompatActivity implements View.OnClickListene
 
     Button btnSiguiente;
     EditText nombre;
+    RadioButton rbHombre;
+    RadioButton rbMujer;
+    TextView fraseSubAct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,9 @@ public class Activity_1 extends AppCompatActivity implements View.OnClickListene
 
         btnSiguiente = (Button) findViewById(R.id.btnSiguiente);
         nombre = (EditText) findViewById(R.id.TextNombre);
+        rbHombre = (RadioButton) findViewById(R.id.radioButton2);
+        rbMujer = (RadioButton) findViewById(R.id.radioButton);
+        fraseSubAct = (TextView) findViewById(R.id.fraseSubAct);
 
         btnSiguiente.setOnClickListener(this);
     }
@@ -41,5 +48,25 @@ public class Activity_1 extends AppCompatActivity implements View.OnClickListene
 
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            if (resultCode == RESULT_OK){
+
+                btnSiguiente.setEnabled(false);
+                nombre.setEnabled(false);
+                rbHombre.setEnabled(false);
+                rbMujer.setEnabled(false);
+
+                fraseSubAct.setText("Tienes "+data.getCharSequenceExtra("edad")+"años.");
+
+
+
+
+            }
+        }
     }
 }

@@ -61,12 +61,37 @@ public class Activity_1 extends AppCompatActivity implements View.OnClickListene
                 rbHombre.setEnabled(false);
                 rbMujer.setEnabled(false);
 
-                fraseSubAct.setText("Tienes "+data.getCharSequenceExtra("edad")+"años.");
+                String edadStr = "" + data.getCharSequenceExtra("edad");
+                int edad = Integer.parseInt(edadStr);
 
+                if (edad >= 35) {
 
+                    fraseSubAct.setText("Tienes "+data.getCharSequenceExtra("edad")+" años. Ai ai ai...");
+                } else {
+                    if (edad < 35 && edad >=25) {
 
+                        fraseSubAct.setText("Tienes "+data.getCharSequenceExtra("edad")+" años. " +
+                                "Estas en la flor de la vida");
+                    } else {
+                        if (edad < 25 && edad >= 18) {
 
+                            fraseSubAct.setText("Tienes "+data.getCharSequenceExtra("edad")+" años." +
+                                    "Ya eres mayor de edad");
+                        } else {
+
+                            fraseSubAct.setText("Tienes "+data.getCharSequenceExtra("edad")+" años. Eres " +
+                                    "menor de edad");
+                        }
+                    }
+                }
             }
+
+            if(resultCode == RESULT_CANCELED) {
+
+                Toast.makeText(this, "Has vuelto a atras", Toast.LENGTH_SHORT).show();
+            }
+
+
         }
     }
 }

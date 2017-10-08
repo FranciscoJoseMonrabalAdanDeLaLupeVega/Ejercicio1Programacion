@@ -24,8 +24,10 @@ public class Activity_2 extends AppCompatActivity implements View.OnClickListene
         btnSiguiente = (Button)findViewById(R.id.btnSiguiente);
         btnCancelar = (Button)findViewById(R.id.btnCancelar);
         txtNombre = (TextView)findViewById(R.id.txtAct2);
-        edad = (EditText) findViewById(R.id.Edad);
+        edad = (EditText)findViewById(R.id.Edad);
 
+        btnSiguiente.setOnClickListener(this);
+        btnCancelar.setOnClickListener(this);
         Intent i = getIntent();
         txtNombre.setText("Hola "+i.getCharSequenceExtra("nombre")+", introduce los siguientes datos");
 
@@ -47,7 +49,12 @@ public class Activity_2 extends AppCompatActivity implements View.OnClickListene
 
                 Toast.makeText(this, "Introduce la edad", Toast.LENGTH_SHORT).show();
             }
+        }
 
+        if (view.getId() == btnCancelar.getId()) {
+
+            setResult(RESULT_CANCELED);
+            finish();
         }
     }
 }

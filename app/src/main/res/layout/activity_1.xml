@@ -30,21 +30,26 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="44dp" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hombre"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="140dp" />
+            android:layout_height="wrap_content" >
 
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mujer"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="108dp" />
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mujer"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hombre"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="140dp" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/btnSiguiente"
